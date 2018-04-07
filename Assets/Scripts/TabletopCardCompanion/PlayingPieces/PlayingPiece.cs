@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TabletopCardCompanion.Components;
+using TabletopCardCompanion.Components.Groupable;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
 using UnityEngine;
@@ -13,9 +14,10 @@ namespace TabletopCardCompanion.PlayingPieces
     /// </summary>
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(TwoSidedSprite))]
-    [RequireComponent(typeof(HeightController2D))]
     [RequireComponent(typeof(TransformGesture))]
     [RequireComponent(typeof(Transformer))]
+    [RequireComponent(typeof(HeightController2D))]
+    [RequireComponent(typeof(GroupableBase))]
     public class PlayingPiece : MonoBehaviour
     {
         protected TwoSidedSprite twoSidedSprite;

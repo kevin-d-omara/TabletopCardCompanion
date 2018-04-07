@@ -15,6 +15,11 @@ namespace TabletopCardCompanion
     public class HeightController2D : MonoBehaviour
     {
         /// <summary>
+        /// Called whenever this object is lowered onto another object. <see cref="LowerObject"/>
+        /// </summary>
+        public event System.EventHandler<Collider2D> PlacedOntoObject;
+
+        /// <summary>
         /// Height objects are raised to when lifted. This should be just below the camera (default camera height = -10f).
         /// </summary>
         private static readonly float LIFT_HEIGHT = 9f;
@@ -49,6 +54,7 @@ namespace TabletopCardCompanion
             if (objectBelow != null)
             {
                 height = objectBelow.transform.position.z - HEIGHT_BUFFER;
+                PlacedOntoObject?.Invoke(this, objectBelow);
             }
             else
             {
