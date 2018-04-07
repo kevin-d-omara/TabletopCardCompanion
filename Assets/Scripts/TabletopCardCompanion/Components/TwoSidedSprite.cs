@@ -16,7 +16,7 @@ namespace TabletopCardCompanion.Components
         [SerializeField] private Sprite front;
         [SerializeField] private Sprite back;
         [SerializeField] private bool isShowingFront = true;
-        
+
         private BoxCollider2D boxCollider;
         private SpriteRenderer spriteRenderer;
 
