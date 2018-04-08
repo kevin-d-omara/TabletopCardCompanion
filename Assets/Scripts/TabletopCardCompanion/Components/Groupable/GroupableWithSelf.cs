@@ -3,19 +3,25 @@
 namespace TabletopCardCompanion.Components.Groupable
 {
     /// <summary>
-    /// This object may only be grouped with copies of itself.
+    /// This object may only be grouped with other objects of this same class.
     /// <para>
-    /// For example, poker chips of the same denomination.
+    /// For example, playing cards.
     /// </para>
     /// </summary>
     public class GroupableWithSelf : GroupableBase
     {
         /// <summary>
-        ///  Combine the above object with this one if both are copies of each other.
+        /// Combine the above object with this one if both are <see cref="GroupableWithSelf"/>.
         /// </summary>
         protected override void NotifyReceipientOfPlacement(GameObject objAbove)
         {
-            throw new System.NotImplementedException();
+            var groupableWithSelf = objAbove.GetComponent<GroupableWithSelf>();
+
+            if (groupableWithSelf)
+            {
+                // Combine together to create a stack or deck.
+                Debug.Log("Both are GroupableWithSelf");
+            }
         }
     }
 }

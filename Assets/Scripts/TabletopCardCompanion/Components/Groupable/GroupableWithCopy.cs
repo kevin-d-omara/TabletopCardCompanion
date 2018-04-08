@@ -3,15 +3,15 @@
 namespace TabletopCardCompanion.Components.Groupable
 {
     /// <summary>
-    /// This object may only be grouped with other objects of the same class.
+    /// This object may only be grouped with copies of itself.
     /// <para>
-    /// For example, playing cards.
+    /// For example, poker chips of the same denomination.
     /// </para>
     /// </summary>
-    public class GroupableWithClass : GroupableBase
+    public class GroupableWithCopy : GroupableBase
     {
         /// <summary>
-        /// Combine the above object with this one if both are are the same class of object.
+        ///  Combine the above object with this one if both are copies of each other.
         /// </summary>
         protected override void NotifyReceipientOfPlacement(GameObject objAbove)
         {
