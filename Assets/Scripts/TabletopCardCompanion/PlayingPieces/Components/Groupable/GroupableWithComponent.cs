@@ -21,7 +21,7 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
             if (!string.IsNullOrWhiteSpace(typeOfThis) && !string.IsNullOrWhiteSpace(typeOfThat) &&
                 string.Equals(typeOfThis, typeOfThat))
             {
-                // Combine together to create a stack or deck.
+                Debug.Log("Both are GroupableWithComponent");
             }
         }
     }
