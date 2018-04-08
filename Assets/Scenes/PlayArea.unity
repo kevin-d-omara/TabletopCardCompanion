@@ -232,9 +232,9 @@ GameObject:
   - component: {fileID: 691491400}
   - component: {fileID: 691491403}
   - component: {fileID: 691491407}
+  - component: {fileID: 691491408}
   - component: {fileID: 691491406}
   - component: {fileID: 691491405}
-  - component: {fileID: 691491408}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged

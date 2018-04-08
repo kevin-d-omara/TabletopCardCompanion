@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TabletopCardCompanion.Components.Groupable
+namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
 {
     /// <summary>
     /// Base class for defining behavior when objects are placed on top of each other.

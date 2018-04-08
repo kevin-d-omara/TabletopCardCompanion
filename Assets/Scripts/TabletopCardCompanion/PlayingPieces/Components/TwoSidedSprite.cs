@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace TabletopCardCompanion.Components
+namespace TabletopCardCompanion.PlayingPieces.Components
 {
     /// <summary>
     /// This component represents a double-sided sprite. It could be used for playing cards, boardgame tiles, etc.

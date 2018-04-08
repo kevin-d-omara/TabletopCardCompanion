@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TabletopCardCompanion.Components;
-using TabletopCardCompanion.Components.Groupable;
+using TabletopCardCompanion.PlayingPieces.Components;
+using TabletopCardCompanion.PlayingPieces.Components.Groupable;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
 using UnityEngine;

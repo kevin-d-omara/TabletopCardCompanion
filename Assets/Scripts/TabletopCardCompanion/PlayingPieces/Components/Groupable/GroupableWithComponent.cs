@@ -1,7 +1,6 @@
-﻿using TabletopCardCompanion.PlayingPieces;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace TabletopCardCompanion.Components.Groupable
+namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
 {
     /// <summary>
     /// This object may only be grouped with other objects of the same component type.

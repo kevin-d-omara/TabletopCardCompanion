@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TabletopCardCompanion.Components.Groupable
+namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
 {
     /// <summary>
     /// This object may not be grouped with other objects.

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TouchScript.Gestures;
 using TouchScript.Gestures.TransformGestures;
 using UnityEngine;
 
-namespace TabletopCardCompanion
+namespace TabletopCardCompanion.PlayingPieces.Components
 {
     /// <summary>
     /// Simulates the third dimension (in/out of the screen) for a 2d top-down game.
