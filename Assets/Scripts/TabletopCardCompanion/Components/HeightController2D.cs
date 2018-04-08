@@ -12,6 +12,7 @@ namespace TabletopCardCompanion
     /// </summary>
     [RequireComponent(typeof(BoxCollider2D))]       // Required for BoxCasting to find objects below this one.
     [RequireComponent(typeof(TransformGesture))]    // Source of pick up and set down signals.
+    [DisallowMultipleComponent]
     public class HeightController2D : MonoBehaviour
     {
         /// <summary>

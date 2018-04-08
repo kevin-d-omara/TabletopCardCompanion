@@ -11,6 +11,7 @@ namespace TabletopCardCompanion.Components
     /// </para>
     /// </summary>
     [RequireComponent(typeof(SpriteRenderer))]
+    [DisallowMultipleComponent]
     public class TwoSidedSprite : MonoBehaviour
     {
         [SerializeField] private Sprite front;

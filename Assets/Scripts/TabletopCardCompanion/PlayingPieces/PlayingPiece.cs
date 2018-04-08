@@ -22,6 +22,28 @@ namespace TabletopCardCompanion.PlayingPieces
     {
         protected TwoSidedSprite twoSidedSprite;
 
+        [SerializeField] private MetaData metaData = new MetaData();
+
+        /// <summary>
+        /// User defined information about this playing piece.
+        /// </summary>
+        [Serializable]
+        public class MetaData
+        {
+            public string name;
+            public string description;
+            public string componentType;
+            // key-value pairs
+        }
+
+        /// <summary>
+        /// Return the type of component this is. For example, an exploration tile or a blip. User defined.
+        /// </summary>
+        public string GetComponentType()
+        {
+            return metaData.componentType;
+        }
+
         /// <summary>
         /// Flip the playing piece over so that the reverse side is showing.
         /// </summary>

@@ -11,7 +11,7 @@ namespace TabletopCardCompanion.Components.Groupable
     public class GroupableWithClass : GroupableBase
     {
         /// <summary>
-        /// If the object above this one shares the same class, will combine together as a group.
+        /// Combine the above object with this one if both are are the same class of object.
         /// </summary>
         protected override void NotifyReceipientOfPlacement(GameObject objAbove)
         {

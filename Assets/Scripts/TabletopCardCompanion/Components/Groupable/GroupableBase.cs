@@ -9,6 +9,7 @@ namespace TabletopCardCompanion.Components.Groupable
     /// </para>
     /// </summary>
     [RequireComponent(typeof(HeightController2D))]
+    [DisallowMultipleComponent]
     public abstract class GroupableBase : MonoBehaviour
     {
         /// <summary>
