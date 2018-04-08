@@ -15,11 +15,11 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         /// </summary>
         protected override void NotifyReceipientOfPlacement(GameObject objAbove)
         {
-            var typeOfThis =          GetComponent<PlayingPiece>().GetComponentType();
-            var typeOfThat = objAbove.GetComponent<PlayingPiece>().GetComponentType();
+            var self  =          GetComponent<PlayingPiece>().GetComponentType();
+            var other = objAbove.GetComponent<PlayingPiece>().GetComponentType();
 
-            if (!string.IsNullOrWhiteSpace(typeOfThis) && !string.IsNullOrWhiteSpace(typeOfThat) &&
-                string.Equals(typeOfThis, typeOfThat))
+            if (!string.IsNullOrWhiteSpace(self) && !string.IsNullOrWhiteSpace(other) &&
+                string.Equals(self, other))
             {
                 Debug.Log("Both are GroupableWithComponent");
             }

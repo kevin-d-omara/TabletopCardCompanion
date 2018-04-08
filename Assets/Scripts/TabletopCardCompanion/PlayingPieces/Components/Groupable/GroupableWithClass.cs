@@ -15,10 +15,11 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         /// </summary>
         protected override void NotifyReceipientOfPlacement(GameObject objAbove)
         {
-            var typeOfThis =          GetComponent<PlayingPiece>().GetType();
-            var typeOfThat = objAbove.GetComponent<PlayingPiece>().GetType();
+            // TODO: not safe if self or other don't have PlayingPiece components attached.
+            var self  =          GetComponent<PlayingPiece>().GetType();
+            var other = objAbove.GetComponent<PlayingPiece>().GetType();
 
-            if (typeOfThis.IsAssignableFrom(typeOfThat) || typeOfThat.IsAssignableFrom(typeOfThis))
+            if (self.IsAssignableFrom(other) || other.IsAssignableFrom(self))
             {
                 Debug.Log("Both are GroupableWithClass");
             }
