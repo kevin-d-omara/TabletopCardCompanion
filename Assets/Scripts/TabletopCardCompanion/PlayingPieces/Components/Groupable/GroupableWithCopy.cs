@@ -13,7 +13,7 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         /// <summary>
         ///  Combine the above object with this one if both are copies of each other.
         /// </summary>
-        protected override void NotifyReceipientOfPlacement(GameObject objAbove)
+        protected override void NotifyReceipientOfPlacement(PlayingPiece objAbove)
         {
             // TODO: add PlayingPiece.GetOriginal
             // TODO: add PlayingPiece.Initialize

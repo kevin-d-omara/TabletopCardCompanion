@@ -15,7 +15,7 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         /// <summary>
         /// Do something when an object is placed on top of this one.
         /// </summary>
-        protected abstract void NotifyReceipientOfPlacement(GameObject objAbove);
+        protected abstract void NotifyReceipientOfPlacement(PlayingPiece objAbove);
 
         /// <summary>
         /// Notify the object below this one that this object has been placed above it.
@@ -23,8 +23,9 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         /// <param name="objBelow">Collider2D of the object below this one.</param>
         private void PlacedOntoObjectHandler(object sender, Collider2D objBelow)
         {
-            var groupableComponent = objBelow.GetComponent<GroupableBase>();
-            groupableComponent?.NotifyReceipientOfPlacement(gameObject);
+            var playingPiece = objBelow.GetComponent<PlayingPiece>();
+            var groupable    = objBelow.GetComponent<GroupableBase>();
+            groupable.NotifyReceipientOfPlacement(playingPiece);
         }
 
         private void OnEnable()

@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TabletopCardCompanion.PlayingPieces;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace TabletopCardCompanion.PlayingPieces
+namespace TabletopCardCompanion.PlayingPieces.Containers
 {
-    public class Deck : PlayingPiece
+    public class Deck : Container
     {
         private Stack<PlayingPiece> cards = new Stack<PlayingPiece>();
 

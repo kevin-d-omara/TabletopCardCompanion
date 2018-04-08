@@ -7,7 +7,7 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
     /// </summary>
     public class GroupableWithNone : GroupableBase
     {
-        protected override void NotifyReceipientOfPlacement(GameObject objAbove)
+        protected override void NotifyReceipientOfPlacement(PlayingPiece objAbove)
         {
             // do nothing
         }

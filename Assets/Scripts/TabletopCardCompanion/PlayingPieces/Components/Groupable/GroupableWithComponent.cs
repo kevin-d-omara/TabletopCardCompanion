@@ -13,10 +13,10 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         /// <summary>
         /// Combine the above object with this one if both are of the same component type.
         /// </summary>
-        protected override void NotifyReceipientOfPlacement(GameObject objAbove)
+        protected override void NotifyReceipientOfPlacement(PlayingPiece objAbove)
         {
-            var self  =          GetComponent<PlayingPiece>().GetComponentType();
-            var other = objAbove.GetComponent<PlayingPiece>().GetComponentType();
+            var self  = GetComponent<PlayingPiece>().GetComponentType();
+            var other = objAbove.GetComponentType();
 
             if (!string.IsNullOrWhiteSpace(self) && !string.IsNullOrWhiteSpace(other) &&
                 string.Equals(self, other))

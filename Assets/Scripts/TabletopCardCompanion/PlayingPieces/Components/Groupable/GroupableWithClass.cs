@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TabletopCardCompanion.PlayingPieces.Containers;
+using UnityEngine;
 
 namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
 {
@@ -13,15 +14,20 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         /// <summary>
         /// Combine the above object with this one if both are the same class.
         /// </summary>
-        protected override void NotifyReceipientOfPlacement(GameObject objAbove)
+        protected override void NotifyReceipientOfPlacement(PlayingPiece objAbove)
         {
-            // TODO: not safe if self or other don't have PlayingPiece components attached.
-            var self  =          GetComponent<PlayingPiece>().GetType();
-            var other = objAbove.GetComponent<PlayingPiece>().GetType();
+            // TODO: move "GetComponent<PlayingPiece>().GetType();" to Awake() in base class.
+            var self  = GetComponent<PlayingPiece>().GetType();
+            var other = objAbove.GetType();
 
             if (self.IsAssignableFrom(other) || other.IsAssignableFrom(self))
             {
                 Debug.Log("Both are GroupableWithClass");
+
+                // TODO: Snap position and rotation (not scale) of 'above' to 'self'.
+
+                var first = GetComponent<PlayingPiece>();
+                Container.CreateFrom(first, objAbove);
             }
         }
     }
