@@ -15,6 +15,10 @@ namespace TabletopCardCompanion.Components.Groupable
         /// </summary>
         protected override void NotifyReceipientOfPlacement(GameObject objAbove)
         {
+            // TODO: add PlayingPiece.GetOriginal
+            // TODO: add PlayingPiece.Initialize
+            // TODO: add PlayingPiece.Clone
+
             throw new System.NotImplementedException();
         }
     }

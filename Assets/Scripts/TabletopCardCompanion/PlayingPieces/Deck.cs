@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TabletopCardCompanion.PlayingPieces;
 using UnityEngine;
 
-namespace TabletopCardCompanion
+namespace TabletopCardCompanion.PlayingPieces
 {
     public class Deck : PlayingPiece
     {
