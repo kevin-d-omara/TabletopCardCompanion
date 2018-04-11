@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using TabletopCardCompanion.PlayingPieces.Containers;
+using UnityEngine;
 
 namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
 {
@@ -16,12 +18,14 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         protected override void NotifyReceipientOfPlacement(PlayingPiece objAbove)
         {
             var self  = GetComponent<PlayingPiece>().GetComponentType();
-            var other = objAbove.GetComponentType();
+            var other =                     objAbove.GetComponentType();
 
             if (!string.IsNullOrWhiteSpace(self) && !string.IsNullOrWhiteSpace(other) &&
                 string.Equals(self, other))
             {
                 Debug.Log("Both are GroupableWithComponent");
+
+                throw new NotImplementedException();
             }
         }
     }

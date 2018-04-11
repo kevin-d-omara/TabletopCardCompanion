@@ -4,7 +4,7 @@ using TabletopCardCompanion.DataStructures;
 namespace TabletopCardCompanion.PlayingPieces.Containers
 {
     /// <summary>
-    /// Holds other playing pieces in a manner similar to a deck of cards.
+    /// A stack based collection of playing pieces.
     /// <para>
     /// For example, a deck of cards, stack of tiles, or bag of items.
     /// </para>

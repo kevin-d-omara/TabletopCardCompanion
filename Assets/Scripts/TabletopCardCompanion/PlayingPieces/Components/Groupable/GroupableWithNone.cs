@@ -9,7 +9,7 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
     {
         protected override void NotifyReceipientOfPlacement(PlayingPiece objAbove)
         {
-            // do nothing
+            // Do nothing.
         }
     }
 }

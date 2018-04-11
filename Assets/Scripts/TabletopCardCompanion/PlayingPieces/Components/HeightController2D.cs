@@ -18,7 +18,8 @@ namespace TabletopCardCompanion.PlayingPieces.Components
         public event System.EventHandler<Collider2D> PlacedOntoObject;
 
         /// <summary>
-        /// Height objects are raised to when lifted. This should be just below the camera (default camera height = -10f).
+        /// The height objects are raised to when lifted.
+        /// This should be just below the camera (default camera height = -10f).
         /// </summary>
         private static readonly float LIFT_HEIGHT = 9f;
 

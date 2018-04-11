@@ -18,16 +18,16 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         {
             // TODO: move "GetComponent<PlayingPiece>().GetType();" to Awake() in base class.
             var self  = GetComponent<PlayingPiece>().GetType();
-            var other = objAbove.GetType();
+            var other =                     objAbove.GetType();
 
             if (self.IsAssignableFrom(other) || other.IsAssignableFrom(self))
             {
                 Debug.Log("Both are GroupableWithClass");
 
-                // TODO: Snap position and rotation (not scale) of 'above' to 'self'.
+                SnapToSelf(objAbove);
 
-                var first = GetComponent<PlayingPiece>();
-                Container.CreateFrom(first, objAbove);
+                var thisObj = GetComponent<PlayingPiece>();
+                Container.CreateFrom(thisObj, objAbove);
             }
         }
     }

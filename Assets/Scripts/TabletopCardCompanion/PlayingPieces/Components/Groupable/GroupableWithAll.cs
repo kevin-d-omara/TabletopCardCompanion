@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
 {
@@ -13,6 +14,8 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         protected override void NotifyReceipientOfPlacement(PlayingPiece objAbove)
         {
             Debug.Log("This is GroupableWithAll");
+
+            throw new NotImplementedException();
         }
     }
 }

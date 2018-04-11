@@ -18,7 +18,7 @@ namespace TabletopCardCompanion.DataStructures
         }
 
         /// <summary>
-        /// Return both halves of the deck.
+        /// Divide the deck into two halves.
         /// </summary>
         /// <returns>A tuple containing the top half of the deck followed by the bottom half.</returns>
         public Tuple<Deck<TCard>,Deck<TCard>> Split()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
 {
@@ -16,6 +17,17 @@ namespace TabletopCardCompanion.PlayingPieces.Components.Groupable
         /// Do something when an object is placed on top of this one.
         /// </summary>
         protected abstract void NotifyReceipientOfPlacement(PlayingPiece objAbove);
+
+        /// <summary>
+        /// Match the position and rotation (not scale) of the above object to this one.
+        /// </summary>
+        protected void SnapToSelf(PlayingPiece objAbove)
+        {
+            // snap position
+            // snap rotation
+            //      note: cards should be able to be placed upside down, so snap based on shortest path for 180 degrees
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Notify the object below this one that this object has been placed above it.
