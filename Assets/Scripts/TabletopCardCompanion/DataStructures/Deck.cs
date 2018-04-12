@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TabletopCardCompanion.DataStructures
 {
@@ -10,7 +11,7 @@ namespace TabletopCardCompanion.DataStructures
     public class Deck<TCard> : Stack<TCard>
     {
         /// <summary>
-        /// Randomize the order of the cards.
+        /// Randomize the ordering of the cards.
         /// </summary>
         public void Suffle()
         {

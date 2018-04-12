@@ -12,6 +12,18 @@ namespace TabletopCardCompanion.PlayingPieces.Components
     [DisallowMultipleComponent]
     public class TwoSidedSprite : MonoBehaviour
     {
+        public Sprite Front
+        {
+            get { return front; }
+            set { front = value; UpdateView(); }
+        }
+
+        public Sprite Back
+        {
+            get { return back; }
+            set { back = value; UpdateView(); }
+        }
+
         [SerializeField] private Sprite front;
         [SerializeField] private Sprite back;
         [SerializeField] private bool isShowingFront = true;
@@ -25,16 +37,10 @@ namespace TabletopCardCompanion.PlayingPieces.Components
             UpdateView();
         }
 
-        public void SetFront(Sprite sprite)
+        public void SetFrontAndBack(TwoSidedSprite sprite)
         {
-            front = sprite;
-            UpdateView();
-        }
-
-        public void SetBack(Sprite sprite)
-        {
-            back = sprite;
-            UpdateView();
+            Front = sprite.Front;
+            Back  = sprite.Back;
         }
 
         /// <summary>

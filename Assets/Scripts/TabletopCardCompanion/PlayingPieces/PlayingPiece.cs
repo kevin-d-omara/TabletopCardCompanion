@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TabletopCardCompanion.PlayingPieces.Components;
-using TabletopCardCompanion.PlayingPieces.Components.Groupable;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
 using UnityEngine;
@@ -17,10 +16,9 @@ namespace TabletopCardCompanion.PlayingPieces
     [RequireComponent(typeof(TransformGesture))]
     [RequireComponent(typeof(Transformer))]
     [RequireComponent(typeof(HeightController2D))]
-    [RequireComponent(typeof(GroupableBase))]
-    public class PlayingPiece : MonoBehaviour
+    public abstract class PlayingPiece : MonoBehaviour
     {
-        protected TwoSidedSprite twoSidedSprite;
+        public TwoSidedSprite TwoSidedSprite { get; private set; }
 
         [SerializeField] private MetaData metaData = new MetaData();
 
@@ -82,6 +80,36 @@ namespace TabletopCardCompanion.PlayingPieces
         public virtual void ScaleUp()
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notify the piece below this one that this piece has been placed above it.
+        /// </summary>
+        /// <param name="objBelow">The playing piece underneath this one.</param>
+        private void PlacedOntoObjectHandler(object sender, Collider2D objBelow)
+        {
+            var pieceBelow = objBelow.GetComponent<PlayingPiece>();
+            pieceBelow.NotifyRecipientOfPlacement(this);
+        }
+
+        /// <summary>
+        /// Do something when an object is placed on top of this one.
+        /// </summary>
+        protected abstract void NotifyRecipientOfPlacement(PlayingPiece objAbove);
+
+        private void Awake()
+        {
+            TwoSidedSprite = GetComponent<TwoSidedSprite>();
+        }
+
+        private void OnEnable()
+        {
+            GetComponent<HeightController2D>().PlacedOntoObject += PlacedOntoObjectHandler;
+        }
+
+        private void OnDisable()
+        {
+            GetComponent<HeightController2D>().PlacedOntoObject -= PlacedOntoObjectHandler;
         }
     }
 }
