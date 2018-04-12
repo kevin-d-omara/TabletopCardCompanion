@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TabletopCardCompanion.PlayingPieces.Components;
 using TouchScript.Behaviors;
+using TouchScript.Gestures;
 using TouchScript.Gestures.TransformGestures;
 using UnityEngine;
 
@@ -15,11 +16,14 @@ namespace TabletopCardCompanion.PlayingPieces
     [RequireComponent(typeof(TwoSidedSprite))]
     [RequireComponent(typeof(TransformGesture))]
     [RequireComponent(typeof(Transformer))]
+    [RequireComponent(typeof(TapGesture))]
     [RequireComponent(typeof(HeightController2D))]
     public abstract class PlayingPiece : MonoBehaviour
     {
         public TwoSidedSprite TwoSidedSprite { get; private set; }
 
+        [SerializeField] private TapGesture singleTapGesture;
+        [SerializeField] private TapGesture doubleTapGesture;
         [SerializeField] private MetaData metaData = new MetaData();
 
         /// <summary>
@@ -83,6 +87,11 @@ namespace TabletopCardCompanion.PlayingPieces
         }
 
         /// <summary>
+        /// Do something when an object is placed on top of this one.
+        /// </summary>
+        protected abstract void NotifyRecipientOfPlacement(PlayingPiece objAbove);
+
+        /// <summary>
         /// Notify the piece below this one that this piece has been placed above it.
         /// </summary>
         /// <param name="objBelow">The playing piece underneath this one.</param>
@@ -93,23 +102,39 @@ namespace TabletopCardCompanion.PlayingPieces
         }
 
         /// <summary>
-        /// Do something when an object is placed on top of this one.
+        /// When single-tapped, magnify the playing piece's image.
         /// </summary>
-        protected abstract void NotifyRecipientOfPlacement(PlayingPiece objAbove);
+        private void SingleTapHandler(object sender, EventArgs e)
+        {
+            Debug.Log("Single tapped --> Magnify");
+        }
 
-        private void Awake()
+        /// <summary>
+        /// When double-tapped, pull up the right-click menu for this playing piece.
+        /// </summary>
+        private void DoubleTapHandler(object sender, EventArgs e)
+        {
+            Debug.Log("Double tapped --> Right-click control menu");
+        }
+
+        protected virtual void Awake()
         {
             TwoSidedSprite = GetComponent<TwoSidedSprite>();
+            // Must assign singleTapGesture and doubleTapGesture in editor.
         }
 
         private void OnEnable()
         {
             GetComponent<HeightController2D>().PlacedOntoObject += PlacedOntoObjectHandler;
+            singleTapGesture.Tapped += SingleTapHandler;
+            doubleTapGesture.Tapped += DoubleTapHandler;
         }
 
         private void OnDisable()
         {
             GetComponent<HeightController2D>().PlacedOntoObject -= PlacedOntoObjectHandler;
+            singleTapGesture.Tapped -= SingleTapHandler;
+            doubleTapGesture.Tapped -= DoubleTapHandler;
         }
     }
 }

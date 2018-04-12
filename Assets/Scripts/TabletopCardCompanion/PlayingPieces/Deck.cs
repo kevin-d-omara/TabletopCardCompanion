@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
 using TabletopCardCompanion.DataStructures;
+using TouchScript;
+using TouchScript.Gestures.TransformGestures;
+using UnityEngine;
 
 namespace TabletopCardCompanion.PlayingPieces
 {
@@ -9,12 +12,7 @@ namespace TabletopCardCompanion.PlayingPieces
     /// </summary>
     public class Deck : PlayingPiece
     {
-        // TODO: TEMPORARY -- just here to work out how to transfer "click" between the deck and the new card (i.e. for dragging a card off of the top).
-        // TODO: Figure out how to differentiate between a "quick drag" (for taking a card off), and a "pause-then-drag" (for moving the whole deck).
-//        private void OnMouseDown()
-//        {
-//            Take();
-//        }
+        private TransformGesture transformGesture;
 
         private readonly Deck<PlayingPiece> cards = new Deck<PlayingPiece>();
 
@@ -87,13 +85,27 @@ namespace TabletopCardCompanion.PlayingPieces
         }
 
         /// <summary>
-        /// Pop the top card off of the stack and re-activate its game object.
+        /// Pop the top card off of the stack and update the card's view.
+        /// If the final card is removed, destroy the deck.
+        /// <para>
+        /// The card is re-activated and its position, rotation, and scale are updated to match the deck.
+        /// </para>
         /// </summary>
-        /// <returns></returns>
         private PlayingPiece Pop()
         {
             var card = cards.Pop();
             card.gameObject.SetActive(true);
+
+            // Update the card's view. Match its position, rotation, and scale to the deck.
+            card.transform.position = transform.position;
+            // TODO: Match rotation and scale too.
+
+            if (cards.Count == 0)
+            {
+                // Destroy is delayed to allow gesture control to be handed off to the most recently popped card.
+                Destroy(gameObject, Mathf.Epsilon);
+            }
+
             return card;
         }
 
@@ -105,10 +117,46 @@ namespace TabletopCardCompanion.PlayingPieces
         /// </summary>
         private void UpdateView()
         {
+            if (cards.Count == 0)
+            {
+                return;
+            }
+
             var card = cards.Peek();
             TwoSidedSprite.SetFrontAndBack(card.TwoSidedSprite);
 
             // TODO: Show the backside if the card is placed in the deck already flipped over.
+        }
+
+        /// <summary>
+        /// Fires when the deck starts moving. If the deck was picked up first (i.e. long-hold), then move the deck.
+        /// Otherwise, stop moving the deck, spawn the top card of the deck, and move that card instead.
+        /// </summary>
+        private void TransformStartedHandler(object sender, EventArgs e)
+        {
+            var card = Take();
+
+            // Stop moving the deck. Instead, move the card.
+            LayerManager.Instance.SetExclusive(card.transform);
+            transformGesture.Cancel(true, true);
+            LayerManager.Instance.ClearExclusive();
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            transformGesture = GetComponent<TransformGesture>();
+        }
+
+
+        private void OnEnable()
+        {
+            transformGesture.TransformStarted += TransformStartedHandler;
+        }
+
+        private void OnDisable()
+        {
+            transformGesture.TransformStarted -= TransformStartedHandler;
         }
     }
 }
