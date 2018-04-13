@@ -14,8 +14,8 @@ namespace TabletopCardCompanion.PlayingPieces
     /// </summary>
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(TwoSidedSprite))]
-    [RequireComponent(typeof(TransformGesture))]
     [RequireComponent(typeof(Transformer))]
+    [RequireComponent(typeof(TransformGesture))]
     [RequireComponent(typeof(TapGesture))]
     [RequireComponent(typeof(HeightController2D))]
     public abstract class PlayingPiece : MonoBehaviour
