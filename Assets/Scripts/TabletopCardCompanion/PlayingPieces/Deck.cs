@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using TabletopCardCompanion.DataStructures;
 using TouchScript;
 using TouchScript.Gestures.TransformGestures;
@@ -35,11 +34,7 @@ namespace TabletopCardCompanion.PlayingPieces
             if (type == typeof(Deck))
             {
                 var otherDeck = piece.GetComponent<Deck>();
-                var otherCards = otherDeck.cards.Reverse();
-                foreach (var card in otherCards)
-                {
-                    Push(card);
-                }
+                cards.Push(otherDeck.cards);
                 Destroy(piece.gameObject);
             }
             else if (type == typeof(Card))
@@ -60,6 +55,13 @@ namespace TabletopCardCompanion.PlayingPieces
         public void Shuffle()
         {
             throw new System.NotImplementedException();
+        }
+
+        public override void FlipOver()
+        {
+            base.FlipOver();
+            cards.ReverseOrder();
+            UpdateView();
         }
 
         /// <summary>
@@ -99,6 +101,7 @@ namespace TabletopCardCompanion.PlayingPieces
             // Update the card's view. Match its position, rotation, and scale to the deck.
             card.transform.position = transform.position;
             // TODO: Match rotation and scale too.
+            card.TwoSidedSprite.IsFaceUp = TwoSidedSprite.IsFaceUp;
 
             if (cards.Count == 0)
             {

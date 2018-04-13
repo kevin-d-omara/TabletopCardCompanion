@@ -24,16 +24,22 @@ namespace TabletopCardCompanion.PlayingPieces.Components
             set { back = value; UpdateView(); }
         }
 
+        public bool IsFaceUp
+        {
+            get { return isFaceUp; }
+            set { isFaceUp = value; UpdateView(); }
+        }
+
         [SerializeField] private Sprite front;
         [SerializeField] private Sprite back;
-        [SerializeField] private bool isShowingFront = true;
+        [SerializeField] private bool isFaceUp = true;
 
         private BoxCollider2D boxCollider;
         private SpriteRenderer spriteRenderer;
 
         public void FlipOver()
         {
-            isShowingFront = !isShowingFront;
+            isFaceUp = !isFaceUp;
             UpdateView();
         }
 
@@ -48,7 +54,7 @@ namespace TabletopCardCompanion.PlayingPieces.Components
         /// </summary>
         private void UpdateView()
         {
-            spriteRenderer.sprite = isShowingFront ? front : back;
+            spriteRenderer.sprite = isFaceUp ? front : back;
 
             if (boxCollider != null)
             {

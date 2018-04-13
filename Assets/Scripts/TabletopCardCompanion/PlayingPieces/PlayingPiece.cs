@@ -51,7 +51,7 @@ namespace TabletopCardCompanion.PlayingPieces
         /// </summary>
         public virtual void FlipOver()
         {
-            throw new NotImplementedException();
+            TwoSidedSprite.FlipOver();
         }
 
         /// <summary>
@@ -101,6 +101,9 @@ namespace TabletopCardCompanion.PlayingPieces
             pieceBelow.NotifyRecipientOfPlacement(this);
         }
 
+
+        // User Input ----------------------------------------------------------
+
         /// <summary>
         /// When single-tapped, magnify the playing piece's image.
         /// </summary>
@@ -115,7 +118,19 @@ namespace TabletopCardCompanion.PlayingPieces
         private void DoubleTapHandler(object sender, EventArgs e)
         {
             Debug.Log("Double tapped --> Right-click control menu");
+            FlipOver(); // temporary
         }
+
+        private void OnMouseOver()
+        {
+            if (Input.GetButtonDown(InputAxis.FlipOver))
+            {
+                FlipOver();
+            }
+        }
+
+
+        // Initialization ------------------------------------------------------
 
         protected virtual void Awake()
         {

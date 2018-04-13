@@ -28,6 +28,9 @@ namespace TabletopCardCompanion.PlayingPieces
                 var deck = deckObj.GetComponent<Deck>();
                 deck.Add(this);
                 deck.Add(objAbove);
+
+                // Show the same side as the bottom card.
+                deck.TwoSidedSprite.IsFaceUp = TwoSidedSprite.IsFaceUp;
             }
         }
     }

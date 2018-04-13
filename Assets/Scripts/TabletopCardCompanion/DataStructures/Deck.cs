@@ -26,5 +26,37 @@ namespace TabletopCardCompanion.DataStructures
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Reverse the ordering of the cards.
+        /// <para>
+        /// For example, when flipping the deck over.
+        /// </para>
+        /// </summary>
+        public void ReverseOrder()
+        {
+            var queue = new Queue<TCard>();
+            while (Count > 0)
+            {
+                queue.Enqueue(Pop());
+            }
+            while (queue.Count > 0)
+            {
+                Push(queue.Dequeue());
+            }
+        }
+
+        /// <summary>
+        /// Add another deck on top of this one.
+        /// <example>
+        /// Deck1: A, B
+        /// Deck2: C, D
+        /// Deck1.Push(Deck2)   // Deck1: A, B, C, D
+        /// </example>
+        /// </summary>
+        public void Push(IEnumerable<TCard> otherDeck)
+        {
+            otherDeck.Reverse().ToList().ForEach(Push);
+        }
     }
 }
