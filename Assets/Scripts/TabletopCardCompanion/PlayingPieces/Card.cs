@@ -18,7 +18,13 @@ namespace TabletopCardCompanion.PlayingPieces
             var aboveType = objAbove.GetType();
             if (aboveType == typeof(Card) || aboveType == typeof(Deck))
             {
+                // Create new deck.
                 var deckObj = Instantiate(deckPrefab, transform.position, transform.rotation);
+
+                // Match scale to the bottom card.
+                deckObj.transform.localScale = transform.localScale;
+
+                // Add both cards.
                 var deck = deckObj.GetComponent<Deck>();
                 deck.Add(this);
                 deck.Add(objAbove);
