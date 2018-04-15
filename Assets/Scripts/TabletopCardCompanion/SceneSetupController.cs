@@ -23,6 +23,7 @@ namespace TabletopCardCompanion
             foreach (var frontImage in frontImages)
             {
                 drawDeck.Add(new CardModel(frontImage, backImage));
+                drawDeck.Shuffle();
             }
         }
     }

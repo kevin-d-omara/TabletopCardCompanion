@@ -4,7 +4,12 @@ using System.Collections.Generic;
 namespace TabletopCardCompanion.DataStructures
 {
     /// <summary>
-    /// Represents a stack-based collection of playing cards.
+    /// Represents a collection of playing cards.
+    /// <remarks>
+    /// The deck is backed by a list to facilitate efficient shuffling.
+    /// Both stack and list have O(1) performance for adding and removing at the end.
+    /// A lists can be shuffled in place in O(n) time and space. A stack must first be copied to an array, cleared, and then re-pushed.
+    /// </remarks>
     /// </summary>
     public class Deck<TCard>
     {
@@ -13,14 +18,16 @@ namespace TabletopCardCompanion.DataStructures
         /// </summary>
         public int Count => cards.Count;
 
-        private readonly Stack<TCard> cards = new Stack<TCard>();
+        private readonly List<TCard> cards = new List<TCard>();
 
         /// <summary>
         /// Return the top card of the deck.
         /// </summary>
         public TCard Draw()
         {
-            return cards.Pop();
+            var lastCard = cards[cards.Count - 1];
+            cards.RemoveAt(cards.Count - 1);
+            return lastCard;
         }
 
         /// <summary>
@@ -28,7 +35,7 @@ namespace TabletopCardCompanion.DataStructures
         /// </summary>
         public void Add(TCard card)
         {
-            cards.Push(card);
+            cards.Add(card);
         }
 
         /// <summary>
@@ -36,15 +43,15 @@ namespace TabletopCardCompanion.DataStructures
         /// </summary>
         public TCard Peek()
         {
-            return cards.Peek();
+            return cards[cards.Count - 1];
         }
 
         /// <summary>
         /// Randomize the ordering of the cards.
         /// </summary>
-        public void Suffle()
+        public void Shuffle()
         {
-            throw new NotImplementedException();
+            cards.Shuffle();
         }
     }
 }

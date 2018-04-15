@@ -45,7 +45,7 @@ namespace TabletopCardCompanion.PlayingPieces
         /// </summary>
         public void Shuffle()
         {
-            throw new NotImplementedException();
+            cards.Shuffle();
         }
 
         /// <summary>
