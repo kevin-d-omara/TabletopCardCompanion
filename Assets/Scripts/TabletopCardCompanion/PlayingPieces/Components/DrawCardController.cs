@@ -13,6 +13,11 @@ namespace TabletopCardCompanion.PlayingPieces.Components
     public class DrawCardController : MonoBehaviour
     {
         /// <summary>
+        /// Is puublished when this object would like a card to be magnified.
+        /// </summary>
+        public static event EventHandler<Sprite> RequestMagnifyCard;
+
+        /// <summary>
         /// Controls what happens to the card that was drawn.
         /// </summary>
         public enum Mode
@@ -43,12 +48,12 @@ namespace TabletopCardCompanion.PlayingPieces.Components
         [SerializeField] private Deck discardPile;
 
         /// <summary>
-        /// Draw the top card from the draw pile, magnify it, then do something based on the <see cref="Mode"/>.
+        /// Draw the top card of the draw pile, magnify it, then do something based on the <see cref="Mode"/>.
         /// </summary>
         private void DrawCard()
         {
             var card = drawPile.Draw();
-            // TODO: Magnify drawn card.
+            RequestMagnifyCard?.Invoke(this, card.Front);
 
             switch (mode)
             {
@@ -70,6 +75,9 @@ namespace TabletopCardCompanion.PlayingPieces.Components
             }
         }
 
+        /// <summary>
+        /// Draw a card when the draw pile is tapped or clicked.
+        /// </summary>
         private void TappedHanlder(object sender, EventArgs e)
         {
             if (drawPile.Count > 0)

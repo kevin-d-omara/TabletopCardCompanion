@@ -266,45 +266,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 96e8b6e985f555b43af98b83b03b078b, type: 3}
   - {fileID: 21300000, guid: 53533eb49f7fb0748bdc4beec6f50566, type: 3}
   - {fileID: 21300000, guid: 2437da8fd8cbacf4ab25455044a61c94, type: 3}
-  - {fileID: 21300000, guid: 2b4fe7706de1b7a4aa73045abc3f80a7, type: 3}
-  - {fileID: 21300000, guid: 8b620825dd770e440a1284122815b73a, type: 3}
-  - {fileID: 21300000, guid: 4e4ee24de33b6e840a133353df05e019, type: 3}
-  - {fileID: 21300000, guid: bed1c162622daf34291ddec77a9183a2, type: 3}
-  - {fileID: 21300000, guid: c5501b2e80f1e6b47a5a00fbf7549890, type: 3}
-  - {fileID: 21300000, guid: 57899b0c39da98c44b954d116ac673e1, type: 3}
-  - {fileID: 21300000, guid: 71a5c410ac3f26f44b49bf5f75a30ec6, type: 3}
-  - {fileID: 21300000, guid: 45b6bb03b930297489bf99060e34856e, type: 3}
-  - {fileID: 21300000, guid: 0b67f64868949914aa16c719a1410761, type: 3}
-  - {fileID: 21300000, guid: 07c470f809bf7094583175e5c13bee49, type: 3}
-  - {fileID: 21300000, guid: dd030e4d2d4ca9c46af39cfa8e0f63f7, type: 3}
-  - {fileID: 21300000, guid: 46928c9ccfe14b343bc62f22e1fbb25b, type: 3}
-  - {fileID: 21300000, guid: 4cccf76aeff2f674990f6d203ece1fb1, type: 3}
-  - {fileID: 21300000, guid: 3e3362cb033a0d94da016f578ff4e3e7, type: 3}
-  - {fileID: 21300000, guid: 32c7bc2260a2aa54a972b05ce0d32f89, type: 3}
-  - {fileID: 21300000, guid: 758fd0286180cc74ca24d15731d9fd2a, type: 3}
-  - {fileID: 21300000, guid: 84d81a15f2a1198448d5b0441a24fed4, type: 3}
-  - {fileID: 21300000, guid: a18cac0dbc9774c4497f4b1ba763415e, type: 3}
-  - {fileID: 21300000, guid: b5faa9ed8bcea2c4b9134983dd910404, type: 3}
-  - {fileID: 21300000, guid: 6a55755c8268ff94589b938465e76062, type: 3}
-  - {fileID: 21300000, guid: c0d6edfb571920e4b82c464c396f0e81, type: 3}
-  - {fileID: 21300000, guid: 061b6387c2fdd464e84c777d232e0440, type: 3}
-  - {fileID: 21300000, guid: fb2b965b1282aac4f8993b6cf570c9ec, type: 3}
-  - {fileID: 21300000, guid: 91010fdf20cf26f489ca3a3993b4bc26, type: 3}
-  - {fileID: 21300000, guid: 05c75fb54c5b382449bfcb56462bf28d, type: 3}
-  - {fileID: 21300000, guid: e777d05e11d09ea42a81ea7625a26e08, type: 3}
-  - {fileID: 21300000, guid: 30eb788c416908a4092f10cc80ed8020, type: 3}
-  - {fileID: 21300000, guid: ba84b9dfeb6818d4484ba654e027ac2c, type: 3}
-  - {fileID: 21300000, guid: 3ae351b67c4314647bab2272637197d6, type: 3}
-  - {fileID: 21300000, guid: 7b79b0ee515a95349ab62166fdb3ce07, type: 3}
-  - {fileID: 21300000, guid: de05d3fe1df350146bbc59df3fe05184, type: 3}
-  - {fileID: 21300000, guid: a442390655407c647ac8c9726e541dc2, type: 3}
-  - {fileID: 21300000, guid: 1cdba27374ec2414ab7073a5c6393789, type: 3}
-  - {fileID: 21300000, guid: 98d0767e775e74041b619ac140d4d5a6, type: 3}
-  - {fileID: 21300000, guid: 137e8c3fe0ac7314fa253455e9ed0c8c, type: 3}
-  - {fileID: 21300000, guid: 8c0c2a3775ba0e2488b3576ddeed2690, type: 3}
-  - {fileID: 21300000, guid: 2670fae9ba77a864f90fb2bb9bebf785, type: 3}
-  - {fileID: 21300000, guid: 1c84a025f442dee4db6a780fb9c240f8, type: 3}
-  - {fileID: 21300000, guid: 15b89cdff6798ad47b76b3f327f460b9, type: 3}
 --- !u!1 &851462763
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +278,7 @@ GameObject:
   - component: {fileID: 851462766}
   - component: {fileID: 851462765}
   - component: {fileID: 851462764}
+  - component: {fileID: 851462768}
   m_Layer: 5
   m_Name: Magnifier
   m_TagString: Untagged
@@ -404,6 +366,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &851462768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 851462763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e54c7488fb58d94ead82cb49d974188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnifier: {fileID: 1014644541}
 --- !u!1001 &901562676
 Prefab:
   m_ObjectHideFlags: 0
@@ -455,6 +429,10 @@ Prefab:
       propertyPath: layers.Array.data[0]
       value: 
       objectReference: {fileID: 655631662}
+    - target: {fileID: 11400000, guid: 1c4dd8a13f501b04f84fe824120f70bb, type: 2}
+      propertyPath: basicEditor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c4dd8a13f501b04f84fe824120f70bb, type: 2}
   m_IsPrefabParent: 0
@@ -543,7 +521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c6e111963751e48bed84bb4e6cce7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TESTSPRITE: {fileID: 21300000, guid: d8070d004c352994e975140ad212d22d, type: 3}
 --- !u!1 &1439466579
 GameObject:
   m_ObjectHideFlags: 0
