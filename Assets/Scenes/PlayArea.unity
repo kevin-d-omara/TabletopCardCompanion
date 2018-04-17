@@ -692,7 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106948667d7bef049808422a3181a068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDeck: {fileID: 1983931538}
+  mode: 0
+  drawPile: {fileID: 1983931538}
   discardPile: {fileID: 1439466581}
 --- !u!61 &1983931542
 BoxCollider2D:

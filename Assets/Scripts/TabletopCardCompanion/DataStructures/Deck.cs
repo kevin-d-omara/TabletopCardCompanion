@@ -39,6 +39,14 @@ namespace TabletopCardCompanion.DataStructures
         }
 
         /// <summary>
+        /// Add a card to the bottom of the deck.
+        /// </summary>
+        public void AddToBottom(TCard card)
+        {
+            cards.Insert(0, card);
+        }
+
+        /// <summary>
         /// Return the top card of the deck without removing it from the collection
         /// </summary>
         public TCard Peek()

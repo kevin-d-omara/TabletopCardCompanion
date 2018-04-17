@@ -22,6 +22,16 @@ namespace TabletopCardCompanion.PlayingPieces
         private readonly Deck<CardModel> cards = new Deck<CardModel>();
 
         /// <summary>
+        /// Draw the top card of the deck.
+        /// </summary>
+        public CardModel Draw()
+        {
+            var topCard = cards.Draw();
+            UpdateView();
+            return topCard;
+        }
+
+        /// <summary>
         /// Add a card to the top of the deck.
         /// </summary>
         public void Add(CardModel card)
@@ -31,14 +41,15 @@ namespace TabletopCardCompanion.PlayingPieces
         }
 
         /// <summary>
-        /// Draw the top card of the deck.
+        /// Add a card to the bottom of the deck.
         /// </summary>
-        public CardModel Draw()
+        public void AddToBottom(CardModel card)
         {
-            var topCard = cards.Draw();
+            cards.AddToBottom(card);
             UpdateView();
-            return topCard;
         }
+
+
 
         /// <summary>
         /// Randomize the ordering of the cards.
