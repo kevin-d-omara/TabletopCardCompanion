@@ -265,7 +265,6 @@ MonoBehaviour:
   frontImages:
   - {fileID: 21300000, guid: 96e8b6e985f555b43af98b83b03b078b, type: 3}
   - {fileID: 21300000, guid: 53533eb49f7fb0748bdc4beec6f50566, type: 3}
-  - {fileID: 21300000, guid: 2437da8fd8cbacf4ab25455044a61c94, type: 3}
 --- !u!1 &851462763
 GameObject:
   m_ObjectHideFlags: 0
