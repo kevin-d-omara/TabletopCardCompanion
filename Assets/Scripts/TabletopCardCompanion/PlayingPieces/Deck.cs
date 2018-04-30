@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TabletopCardCompanion.DataStructures;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TabletopCardCompanion.PlayingPieces
 {
     /// <summary>
     /// A deck of cards.
     /// </summary>
-    [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(Image))]
     public class Deck : MonoBehaviour
     {
         /// <summary>
@@ -67,23 +67,20 @@ namespace TabletopCardCompanion.PlayingPieces
             if (cards.Count > 0)
             {
                 var topCard = cards.Peek();
-                spriteRenderer.sprite = isFaceUp ? topCard.Front : topCard.Back;
-                boxCollider.size = spriteRenderer.sprite.bounds.size;
+                image.sprite = isFaceUp ? topCard.Front : topCard.Back;
             }
             else
             {
-                spriteRenderer.sprite = null;
+                image.sprite = null;
             }
         }
 
 
-        private SpriteRenderer spriteRenderer;
-        private BoxCollider2D boxCollider;
+        private Image image;
 
         private void Awake()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            boxCollider = GetComponent<BoxCollider2D>();
+            image = GetComponent<Image>();
         }
     }
 }
