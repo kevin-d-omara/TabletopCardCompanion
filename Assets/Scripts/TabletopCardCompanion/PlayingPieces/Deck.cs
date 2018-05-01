@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace TabletopCardCompanion.PlayingPieces
 {
     /// <summary>
-    /// A deck of cards.
+    /// View Controller for a deck of cards.
     /// </summary>
     [RequireComponent(typeof(Image))]
     public class Deck : MonoBehaviour
@@ -74,7 +74,6 @@ namespace TabletopCardCompanion.PlayingPieces
                 image.sprite = null;
             }
         }
-
 
         private Image image;
 
