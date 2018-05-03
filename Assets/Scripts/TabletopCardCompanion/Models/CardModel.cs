@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TabletopCardCompanion.PlayingPieces
+namespace TabletopCardCompanion.Models
 {
     /// <summary>
     /// An immutable collection of data for a playing card.

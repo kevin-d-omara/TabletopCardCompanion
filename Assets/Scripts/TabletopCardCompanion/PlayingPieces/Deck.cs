@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TabletopCardCompanion.DataStructures;
+using TabletopCardCompanion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
