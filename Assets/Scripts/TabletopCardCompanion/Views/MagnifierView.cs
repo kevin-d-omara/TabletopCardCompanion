@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace TabletopCardCompanion
+namespace TabletopCardCompanion.Views
 {
     /// <summary>
     /// UI element that presents an enlarged sprite for easier viewing.
     /// </summary>
     [RequireComponent(typeof(Image))]
-    public class Magnifier : MonoBehaviour
+    public class MagnifierView : MonoBehaviour
     {
         /// <summary>
-        /// Set which sprite is magnified.
+        /// Show a magnified sprite.
         /// </summary>
         public void SetSprite(Sprite sprite)
         {
@@ -19,7 +19,7 @@ namespace TabletopCardCompanion
         }
 
         /// <summary>
-        /// Clear the currently magnified sprite.
+        /// Stop showing a magnified sprite.
         /// </summary>
         public void ClearSprite()
         {

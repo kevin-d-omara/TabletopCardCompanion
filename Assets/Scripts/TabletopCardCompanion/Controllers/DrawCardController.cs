@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using TouchScript.Gestures;
 using UnityEngine;
 
-namespace TabletopCardCompanion.PlayingPieces.Components
+namespace TabletopCardCompanion.Controllers
 {
     /// <summary>
     /// Offers various methods for drawing a card from the top of a deck.
@@ -44,8 +42,8 @@ namespace TabletopCardCompanion.PlayingPieces.Components
         }
 
         [SerializeField] private Mode mode;
-        [SerializeField] private Deck drawPile;
-        [SerializeField] private Deck discardPile;
+        [SerializeField] private DeckController drawPile;
+        [SerializeField] private DeckController discardPile;
 
         /// <summary>
         /// Draw the top card of the draw pile, magnify it, then do something based on the <see cref="Mode"/>.

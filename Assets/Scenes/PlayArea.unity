@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e54c7488fb58d94ead82cb49d974188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnifier: {fileID: 1014644541}
+  magnifierView: {fileID: 1014644541}
 --- !u!114 &851462769
 MonoBehaviour:
   m_ObjectHideFlags: 0

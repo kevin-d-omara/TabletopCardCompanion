@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TabletopCardCompanion.Controllers;
 using TabletopCardCompanion.Models;
 using TabletopCardCompanion.PlayingPieces;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace TabletopCardCompanion
             public Sprite backImage;
             public List<Sprite> frontImages;
 
-            public void AddCardsToDeck(Deck drawPile)
+            public void AddCardsToDeck(DeckController drawPile)
             {
                 foreach (var frontImage in frontImages)
                 {
@@ -50,9 +51,20 @@ namespace TabletopCardCompanion
             foreach (var deckModel in decks)
             {
                 var drawPile = Instantiate(drawPilePrefab, fullscreenRow.transform);
-                var deck = drawPile.GetComponent<Deck>();
+                var deck = drawPile.GetComponent<DeckController>();
                 deckModel.AddCardsToDeck(deck);
             }
+        }
+
+        private void InitializeTabController()
+        {
+            // Create a new tab.
+            var tabPanel = Instantiate(tabPanelPrefab, canvasRoot.transform);
+
+            // Get reference to Controller.
+            var tabController = tabPanel.GetComponent<TabController>();
+
+            // 
         }
     }
 }

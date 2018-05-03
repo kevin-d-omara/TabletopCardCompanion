@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TabletopCardCompanion.PlayingPieces.Components;
+using TabletopCardCompanion.Views;
 using TouchScript.Gestures;
 using TouchScript.Layers;
 using UnityEngine;
 
-namespace TabletopCardCompanion
+namespace TabletopCardCompanion.Controllers
 {
     /// <summary>
     /// Connector pattern. Routes requests to be magnified to the correct magnifier. Controls logic regarding when to start/stop magnifying.
@@ -20,7 +18,7 @@ namespace TabletopCardCompanion
         /// </summary>
         public void Magnify(Sprite sprite)
         {
-            magnifier.SetSprite(sprite);
+            magnifierView.SetSprite(sprite);
             fullscreenLayer.enabled = true;
         }
 
@@ -29,13 +27,13 @@ namespace TabletopCardCompanion
         /// </summary>
         public void StopMagnifying()
         {
-            magnifier.ClearSprite();
+            magnifierView.ClearSprite();
             fullscreenLayer.enabled = false;
         }
 
 
         [SerializeField]
-        private Magnifier magnifier;
+        private MagnifierView magnifierView;
         private FullscreenLayer fullscreenLayer;
 
         private void Awake()

@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TabletopCardCompanion.DataStructures;
+﻿using TabletopCardCompanion.DataStructures;
 using TabletopCardCompanion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TabletopCardCompanion.PlayingPieces
+namespace TabletopCardCompanion.Controllers
 {
     /// <summary>
-    /// View Controller for a deck of cards.
+    /// Controller for a deck of cards.
     /// </summary>
     [RequireComponent(typeof(Image))]
-    public class Deck : MonoBehaviour
+    public class DeckController : MonoBehaviour
     {
         /// <summary>
         /// The number of cards in the deck.
         /// </summary>
         public int Count => cards.Count;
 
-        [SerializeField] private bool isFaceUp = true;
+        [SerializeField] private bool isFaceUp = true;  // TODO: Move faceup/facedown to DeckModel (DataStructures.Deck).
         private readonly Deck<CardModel> cards = new Deck<CardModel>();
 
         /// <summary>
@@ -50,14 +47,13 @@ namespace TabletopCardCompanion.PlayingPieces
             UpdateView();
         }
 
-
-
         /// <summary>
         /// Randomize the ordering of the cards.
         /// </summary>
         public void Shuffle()
         {
             cards.Shuffle();
+            UpdateView();
         }
 
         /// <summary>
@@ -68,19 +64,19 @@ namespace TabletopCardCompanion.PlayingPieces
             if (cards.Count > 0)
             {
                 var topCard = cards.Peek();
-                image.sprite = isFaceUp ? topCard.Front : topCard.Back;
+                deckView.sprite = isFaceUp ? topCard.Front : topCard.Back;
             }
             else
             {
-                image.sprite = null;
+                deckView.sprite = null;
             }
         }
 
-        private Image image;
+        private Image deckView;
 
         private void Awake()
         {
-            image = GetComponent<Image>();
+            deckView = GetComponent<Image>();
         }
     }
 }
